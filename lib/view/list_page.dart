@@ -83,27 +83,22 @@ class ListPage extends GetView<ListController> {
                         color: Colors.yellow,
                         child: Column(
                           children: [
-                            ClipRect(
+                            Expanded(
                               child: Align(
-                                alignment: Alignment.topCenter,
-                                heightFactor: 0.5,
-                                child: kIsWeb || !const bool.fromEnvironment('dart.vm.product')
-                                    ? (data[index].images?.large != null && data[index].images!.large!.startsWith('data:')
-                                        ? Container(height: 80, color: Colors.grey) // Use a placeholder for data URIs in tests
-                                        : Image.network(
-                                            data[index].images?.large ?? '',
-                                            fit: BoxFit.cover,
-                                            width: double.infinity,
-                                          ))
-                                    : Image.network(
-                                        data[index].images?.large ?? '',
-                                        fit: BoxFit.cover,
-                                        width: double.infinity,
-                                      ),
+                                // alignment: Alignment.topCenter,
+                               // heightFactor: 0.5,
+                                child: Image.network(
+                                  data[index].images?.large ?? '',
+                                  fit: BoxFit.fitWidth,
+                                  // scale: 0.5,
+                                  alignment: Alignment.topCenter,
+                                  width: double.infinity,
+                                ),
                               ),
                             ),
-                            Expanded(
-                              child: Center(
+                            // Expanded(
+                            //   child: 
+                              Center(
                                 child: Text(
                                   data[index].name ?? '',
                                   textAlign: TextAlign.center,
@@ -114,7 +109,7 @@ class ListPage extends GetView<ListController> {
                                   ),
                                 ),
                               ),
-                            ),
+                            // ),
                           ],
                         ),
                       ),

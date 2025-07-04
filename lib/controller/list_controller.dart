@@ -23,6 +23,8 @@ class ListController extends GetxController with StateMixin<List<dynamic>> {
         .toList();
 
     filteredList.assignAll(filtered); // Filtered List
+    print('Search performed: ${text.value}'); // Debugging output
+    // use debounce 
     change(filteredList, status: RxStatus.success()); // update List
   }
 
